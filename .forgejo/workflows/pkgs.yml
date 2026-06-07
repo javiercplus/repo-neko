@@ -38,6 +38,8 @@ jobs:
           cd /tmp/void-packages
           git clone --depth 1 https://codeberg.org/javiercplus/protonup-qtvoid.git
           cp -rfv protonup-qtvoid/* srcpkgs/
+          git clone --depth 1 https://codeberg.org/javiercplus/spicetify-void.git
+          cp -rfv spicetify-void/* srcpkgs/
           git clone --depth 1 https://codeberg.org/javiercplus/STEAM-ALT-VOID.git
           cp -rfv STEAM-ALT-VOID/* srcpkgs/
           git clone --depth 1 https://codeberg.org/javiercplus/faugus-launcher-void.git
@@ -54,6 +56,13 @@ jobs:
           cp -rfv brave-bin srcpkgs/
           git clone --depth 1 https://codeberg.org/javiercplus/linux-neko-rolling.git
           cp -rfv linux-neko-rolling srcpkgs/
+          git clone --depth 1 https://codeberg.org/javiercplus/linux-neko-rt.git
+          cp -rfv linux-neko-rt srcpkgs/
+          git clone --depth 1 https://codeberg.org/javiercplus/linux-neko-zen.git
+          cp -rfv linux-neko-zen srcpkgs/
+          git clone --depth 1 https://codeberg.org/javiercplus/waterfox.git
+          cp -rfv waterfox srcpkgs/
+          
           
           # Cambiar la propiedad del espacio de trabajo y de /tmp al usuario builder
           chown -R builder:builder /tmp/void-packages
