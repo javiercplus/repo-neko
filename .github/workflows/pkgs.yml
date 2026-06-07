@@ -73,7 +73,6 @@ jobs:
           
           # Cambiar la propiedad al usuario builder
           chown -R builder:builder /tmp/void-packages
-          chown -R builder:builder ${{ github.workspace }}
 
       # 4. Construir los paquetes secuencialmente como el usuario builder
       - name: Build package
