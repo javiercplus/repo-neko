@@ -97,15 +97,8 @@ jobs:
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg linux-neko-zen"
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg waterfox"
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg vesktop"
-      # 5. Recoger los binarios
-      - name: Collect binaries
-        run: |
-          mkdir -p ${{ github.workspace }}/binpkgs
-          if [ -d /tmp/void-packages/hostdir/binpkgs ]; then
-            cp -r /tmp/void-packages/hostdir/binpkgs/* ${{ github.workspace }}/binpkgs/
-          fi
-
-      # 5. Subir artefactos directamente desde el entorno de Void
+ 
+      # Subir artefactos directamente desde el entorno de Void
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
