@@ -71,27 +71,30 @@ jobs:
           
           git clone --depth 1 https://codeberg.org/javiercplus/waterfox.git srcpkgs/waterfox
           
+          # Definir chroot por defecto en la configuración para evitar fallos de user namespaces
+          echo "XBPS_CHROOT_CMD=ethereal" >> etc/conf
+          
           # Cambiar la propiedad al usuario builder
           chown -R builder:builder /tmp/void-packages
 
       # 4. Construir los paquetes secuencialmente como el usuario builder
       - name: Build package
         run: |
-          su - builder -c "cd /tmp/void-packages && ./xbps-src binary-bootstrap"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg heroic-games"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg protonup-qt"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg steam-nk"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg spicetify"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg faugus-launcher"
-          su - builder -c "cd /tmp/void-packages/_hostdir" || true # Forzar persistencia de directorios si es necesario
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg portproton"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg windscribe-desktop"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg zerotierone"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg brave-bin"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg linux-neko-rolling"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg linux-neko-rt"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg linux-neko-zen"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg waterfox"
+          # Se añade la bandera -t para forzar el uso del backend sin namespaces en caso de conflictos adicionales
+          su - builder -c "cd /tmp/void-packages && ./xbps-src -t binary-bootstrap"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src -t pkg heroic-games"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src -t pkg protonup-qt"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src -t pkg steam-nk"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src -t pkg spicetify"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src -t pkg faugus-launcher"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src -t pkg portproton"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src -t pkg windscribe-desktop"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src -t pkg zerotierone"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src -t pkg brave-bin"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src -t pkg linux-neko-rolling"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src -t pkg linux-neko-rt"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src -t pkg linux-neko-zen"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src -t pkg waterfox"
 
       # 5. Recoger los binarios
       - name: Collect binaries
