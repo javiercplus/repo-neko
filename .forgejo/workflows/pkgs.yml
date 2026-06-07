@@ -1,4 +1,4 @@
-name: Build jwmkit-neko package
+name: Build neko package
 
 on:
   workflow_dispatch:
