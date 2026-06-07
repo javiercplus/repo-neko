@@ -20,7 +20,7 @@ jobs:
           xbps-install -Suyd
           
           # Instalar los paquetes necesarios (incluyendo sudo)
-          xbps-install -y nodejs ca-certificates ntp git base-devel xtools sudo
+          xbps-install -y nodejs ca-certificates ntp git base-devel xtools sudo rsync openssh sshpass
 
           # Crear el grupo xbuilder y un usuario 'builder' asociado a él
           groupadd -f xbuilder
@@ -101,6 +101,33 @@ jobs:
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg waterfox"
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg vesktop"
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg kyoz"
+
+      # Firmar paquetes e índice del repositorio
+      - name: Sign packages and index
+        run: |
+          echo "${{ secrets.XBPS_PRIVATE_KEY }}" > /tmp/privkey.pem
+          cd /tmp/void-packages/hostdir/binpkgs
+          
+          # Firmar cada paquete individualmente primero
+          xbps-rindex --sign-pkg --privkey /tmp/privkey.pem *.xbps
+          
+          # Generar el índice del repositorio (crea el archivo repodata)
+          xbps-rindex -a *.xbps
+          
+          # Firmar el índice recién construido
+          xbps-rindex --sign --signedby "javierc" --privkey /tmp/privkey.pem .
+          
+          # Limpiar la clave privada
+          rm /tmp/privkey.pem
+      # 6. Subir repositorio a SourceForge
+      - name: Deploy to SourceForge
+        env:
+          SFTP_USER: ${{ secrets.SFTP_USERNAME }}
+          SSHPASS: ${{ secrets.SFTP_PASSWORD }}
+        run: |
+          cd /tmp/void-packages/hostdir/binpkgs
+          
+          sshpass -e rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" . ${SFTP_USER}@frs.sourceforge.net:/home/frs/project/neko-void/repo/
           
       # Subir artefactos directamente desde el entorno de Void
       - name: Upload artifacts
