@@ -97,7 +97,7 @@ jobs:
 
       # 6. Subir artefactos
       - name: Upload artifacts
-        uses: actions/artifacts@v4
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.package }}-package
           path: ${{ github.workspace }}/binpkgs/**/*.xbps
