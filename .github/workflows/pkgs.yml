@@ -105,10 +105,10 @@ jobs:
             cp -r /tmp/void-packages/hostdir/binpkgs/* ${{ github.workspace }}/binpkgs/
           fi
 
-      # 6. Subir artefactos
+      # 5. Subir artefactos directamente desde el entorno de Void
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
           name: neko-packages
-          path: ${{ github.workspace }}/binpkgs/**/*.xbps
+          path: /tmp/void-packages/hostdir/binpkgs/**/*.xbps
           if-no-files-found: error
