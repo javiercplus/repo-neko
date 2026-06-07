@@ -71,7 +71,7 @@ jobs:
           git clone --depth 1 https://codeberg.org/javiercplus/linux-neko-zen.git srcpkgs/linux-neko-zen
           
           git clone --depth 1 https://codeberg.org/javiercplus/waterfox.git srcpkgs/waterfox
-          
+          git clone --depth 1 https://codeberg.org/javiercplus/vesktop.git srcpkgs/vesktop
           
           # Cambiar la propiedad al usuario builder
           chown -R builder:builder /tmp/void-packages
@@ -94,7 +94,7 @@ jobs:
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg linux-neko-rt"
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg linux-neko-zen"
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg waterfox"
-
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg vesktop"
       # 5. Recoger los binarios
       - name: Collect binaries
         run: |
