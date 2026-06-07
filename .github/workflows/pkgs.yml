@@ -71,8 +71,6 @@ jobs:
           
           git clone --depth 1 https://codeberg.org/javiercplus/waterfox.git srcpkgs/waterfox
           
-          # Definir chroot por defecto en la configuración para evitar fallos de user namespaces
-          echo "XBPS_CHROOT_CMD=ethereal" >> etc/conf
           
           # Cambiar la propiedad al usuario builder
           chown -R builder:builder /tmp/void-packages
