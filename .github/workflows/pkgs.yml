@@ -50,7 +50,7 @@ jobs:
           
           git clone --depth 1 https://codeberg.org/javiercplus/faugus-launcher-void.git
           cp -rfv faugus-launcher-void/* srcpkgs/
-          
+          echo "#nnothing" >> common/build-style/none.sh
           git clone --depth 1 https://codeberg.org/javiercplus/portproton-void.git
           cp -rfv portproton-void/* srcpkgs/
           
