@@ -73,4 +73,4 @@ jobs:
           
           tar -czvf /tmp/neko-packages.tar.gz .
           
-          hf upload arepaconcafe/repo-bta/ /tmp/neko-packages.tar.gz neko-packages.tar.gz --repo-type dataset --token $HF_TOKEN
+          hf upload arepaconcafe/repo/ /tmp/neko-packages.tar.gz neko-packages.tar.gz --repo-type dataset --token $HF_TOKEN
