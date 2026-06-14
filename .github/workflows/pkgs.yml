@@ -75,6 +75,7 @@ jobs:
           git clone --depth 1 https://codeberg.org/javiercplus/vesktop.git srcpkgs/vesktop
 
           git clone https://codeberg.org/javiercplus/kyoz.git srcpkgs/kyoz
+          git clone --depth 1 https://github.com/javiercplus/sfwbar.git srcpkgs/sfwbar
 
           #BUILDSTyLE NONE
           echo "#nnothing" >> common/build-style/none.sh
@@ -101,6 +102,7 @@ jobs:
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg waterfox"
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg vesktop"
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg kyoz"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg sfwbar"
 
       # Firmar paquetes e índice del repositorio
       - name: Sign packages and index
