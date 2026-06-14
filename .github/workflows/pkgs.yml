@@ -128,13 +128,14 @@ jobs:
           SSHPASS: ${{ secrets.SFTP_PASSWORD }}
         run: |
           cd /tmp/void-packages/hostdir/binpkgs
-          
-          sshpass -e rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" . ${SFTP_USER}@frs.sourceforge.net:/home/frs/project/neko-void/repo/
-          
-      # Subir artefactos directamente desde el entorno de Void
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: neko-packages
-          path: /tmp/void-packages/hostdir/binpkgs/**/*.xbps
-          if-no-files-found: error
+      
+          # Create the remote repository directory (if it doesn’t exist)
+          sshpass -e ssh -o StrictHostKeyChecking=no \
+            ${SFTP_USER}@frs.sourceforge.net \
+            "mkdir -p /home/frs/project/neko-void/repo"
+      
+          # Now sync the files
+          sshpass -e rsync -avz --delete \
+            -e "ssh -o StrictHostKeyChecking=no" \
+            . ${SFTP_USER}@frs.sourceforge.net:/home/frs/project/neko-void/repo/
+    
