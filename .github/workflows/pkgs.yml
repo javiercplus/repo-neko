@@ -127,19 +127,6 @@ jobs:
           SFTP_USER: ${{ secrets.SFTP_USERNAME }}
           SSHPASS: ${{ secrets.SFTP_PASSWORD }}
         run: |
-          # Build a dummy directory that mimics the full remote path
-          mkdir -p /tmp/dummy-structure/home/frs/project/neko-void/repo
-          touch /tmp/dummy-structure/home/frs/project/neko-void/repo/.deploy-dummy
-      
-          # Sync the dummy path with -R to create the remote directory
-          cd /tmp/dummy-structure
-          sshpass -e rsync -avzR \
-            -e "ssh -o StrictHostKeyChecking=no" \
-            ./home/frs/project/neko-void/repo/ \
-            ${SFTP_USER}@frs.sourceforge.net:/
-      
-          # Now sync the real packages (--delete will clean up the dummy)
+
           cd /tmp/void-packages/hostdir/binpkgs
-          sshpass -e rsync -avz --delete \
-            -e "ssh -o StrictHostKeyChecking=no" \
-            . ${SFTP_USER}@frs.sourceforge.net:/home/frs/project/neko-void/repo/
+          sshpass -e rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" . ${SFTP_USER}@frs.sourceforge.net:/home/frs/project/neko-void/repo/
