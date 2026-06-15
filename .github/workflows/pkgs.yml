@@ -47,10 +47,10 @@ jobs:
           cd /tmp/void-packages/hostdir/binpkgs
           
           # Firmar cada paquete individualmente primero
-          xbps-rindex --sign-pkg --privkey /tmp/privkey.pem *.xbps
+          xbps-rindex --sign-pkg --privkey /tmp/privkey.pem *
           
           # Generar el índice del repositorio (crea el archivo repodata)
-          xbps-rindex -a *.xbps
+          xbps-rindex -a *
           
           # Firmar el índice recién construido
           xbps-rindex --sign --signedby "javierc" --privkey /tmp/privkey.pem .
