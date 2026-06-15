@@ -48,4 +48,24 @@ echo "#nnothing" >> common/build-style/none.sh
 chown -R builder:builder /tmp/void-packages
 }
 
+build(){
+          su - builder -c "cd /tmp/void-packages && ./xbps-src binary-bootstrap"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg heroic-games"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg protonup-qt"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg steam-nk"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg spicetify"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg faugus-launcher"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg portproton"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg windscribe-desktop"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg zerotierone"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg brave-bin"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg linux-neko-rolling"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg linux-neko-rt"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg linux-neko-zen"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg waterfox"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg vesktop"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg kyoz"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg sfwbar"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg noctalia"
+}
 
