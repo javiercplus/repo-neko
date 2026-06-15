@@ -78,3 +78,16 @@ build(){
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg noctalia"
 }
 
+case "$@" in 
+       user|user)
+       echo "config user"
+       user
+       ;;
+       build|build)
+       echo "building pkgs"
+       build
+       ;;
+       clone|clone)
+       clone
+       ;;
+esac
