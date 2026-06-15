@@ -6,6 +6,7 @@ user(){
           
           # Permitir que el usuario builder use sudo sin contraseña para las tareas de xbps-src
           echo "builder ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/builder
+          echo XBPS_ALLOW_RESTRICTED=yes >> etc/conf
 }
 
 clone(){
@@ -58,24 +59,24 @@ chown -R builder:builder /tmp/void-packages
 }
 
 build(){
-          su - builder -c "cd /tmp/void-packages && ./xbps-src binary-bootstrap"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg heroic-games"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg protonup-qt"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg steam-nk"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg spicetify"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg faugus-launcher"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg portproton"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg windscribe-desktop"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg zerotierone"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg brave-bin"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg linux-neko-rolling"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg linux-neko-rt"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg linux-neko-zen"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg waterfox"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg vesktop"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg kyoz"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg sfwbar"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg noctalia"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src -r https://repo-de.voidlinux.org/current/ binary-bootstrap"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src -r https://repo-de.voidlinux.org/current/ pkg heroic-games"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg -r https://repo-de.voidlinux.org/current/ protonup-qt"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg -r https://repo-de.voidlinux.org/current/ steam-nk"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg -r https://repo-de.voidlinux.org/current/ spicetify"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg -r https://repo-de.voidlinux.org/current/ faugus-launcher"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg -r https://repo-de.voidlinux.org/current/ portproton"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg -r https://repo-de.voidlinux.org/current/ windscribe-desktop"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg -r https://repo-de.voidlinux.org/current/ zerotierone"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg -r https://repo-de.voidlinux.org/current/ brave-bin"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg -r https://repo-de.voidlinux.org/current/ linux-neko-rolling"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg -r https://repo-de.voidlinux.org/current/ linux-neko-rt"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg -r https://repo-de.voidlinux.org/current/ linux-neko-zen"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg -r https://repo-de.voidlinux.org/current/ waterfox"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg -r https://repo-de.voidlinux.org/current/ vesktop"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg -r https://repo-de.voidlinux.org/current/ kyoz"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg -r https://repo-de.voidlinux.org/current/ sfwbar"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg -r https://repo-de.voidlinux.org/current/ noctalia"
 }
 
 case "$@" in 
