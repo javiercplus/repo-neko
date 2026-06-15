@@ -39,24 +39,40 @@ jobs:
       - name: Build package
         run: |
           /tmp/neko build
-
+          
       # Firmar paquetes e índice del repositorio
       - name: Sign packages and index
         run: |
           echo "${{ secrets.XBPS_PRIVATE_KEY }}" > /tmp/privkey.pem
-          cd /tmp/void-packages/hostdir/binpkgs
           
-          # Firmar cada paquete individualmente primero
-          xbps-rindex --sign-pkg --privkey /tmp/privkey.pem *
+          # Buscar el directorio correcto de binpkgs
+          BINPKGS_DIR=$(find /tmp/void-packages/hostdir/binpkgs -type d -name "*.xbps" 2>/dev/null | head -1)
+          if [ -z "$BINPKGS_DIR" ]; then
+            BINPKGS_DIR="/tmp/void-packages/hostdir/binpkgs"
+          fi
           
-          # Generar el índice del repositorio (crea el archivo repodata)
-          xbps-rindex -a *
+          cd "$BINPKGS_DIR" || exit 1
           
-          # Firmar el índice recién construido
-          xbps-rindex --sign --signedby "javierc" --privkey /tmp/privkey.pem .
+          # Verificar que existan archivos .xbps
+          if ls *.xbps 1> /dev/null 2>&1; then
+            # Firmar cada paquete individualmente
+            xbps-rindex --privkey /tmp/privkey.pem --sign --signedby "javierc" .
+            
+            # Generar el índice del repositorio
+            xbps-rindex -a *.xbps
+            
+            # Firmar el índice
+            xbps-rindex --privkey /tmp/privkey.pem --sign --signedby "javierc" .
+          else
+            echo "ERROR: No .xbps files found in $(pwd)"
+            echo "Listing directory contents:"
+            ls -la
+            find /tmp/void-packages/hostdir/binpkgs -type f | head -20
+            exit 1
+          fi
           
           # Limpiar la clave privada
-          rm /tmp/privkey.pem
+          rm -f /tmp/privkey.pem
       # 6. Subir repositorio a SourceForge
       - name: Deploy to SourceForge
         env:
