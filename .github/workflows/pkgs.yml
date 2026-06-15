@@ -16,11 +16,11 @@ jobs:
       - name: Fix SSL and install tools
         run: |
           # Actualizar repositorios y el sistema
-          xbps-install -Syu xbps
-          xbps-install -Suyd
+          xbps-install -Syu --repository=https://repo-de.voidlinux.org/current/  xbps
+          xbps-install -Suyd --repository=https://repo-de.voidlinux.org/current/ 
           
           # Instalar los paquetes necesarios (incluyendo sudo)
-          xbps-install -y nodejs ca-certificates ntp git base-devel xtools sudo rsync openssh sshpass
+          xbps-install -y --repository=https://repo-de.voidlinux.org/current/  nodejs ca-certificates ntp git base-devel xtools sudo rsync openssh sshpass
 
           # Crear el grupo xbuilder y un usuario 'builder' asociado a él
           groupadd -f xbuilder
