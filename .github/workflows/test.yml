@@ -1,4 +1,4 @@
-name: Build sfwbar
+name: Build Test
 
 on:
   workflow_dispatch:
