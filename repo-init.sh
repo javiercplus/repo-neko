@@ -1,4 +1,13 @@
 #! /bin/bash
+user(){
+ # Crear el grupo xbuilder y un usuario 'builder' asociado a él
+          groupadd -f xbuilder
+          useradd -m -s /bin/bash -G xbuilder builder
+          
+          # Permitir que el usuario builder use sudo sin contraseña para las tareas de xbps-src
+          echo "builder ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/builder
+}
+
 clone(){
 git clone --depth 1 https://github.com/void-linux/void-packages.git /tmp/void-packages
 cd /tmp/void-packages
