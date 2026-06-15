@@ -76,6 +76,7 @@ jobs:
 
           git clone https://codeberg.org/javiercplus/kyoz.git srcpkgs/kyoz
           git clone --depth 1 https://github.com/javiercplus/sfwbar.git srcpkgs/sfwbar
+          git clone --depth 1 https://github.com/javiercplus/noctalia.git srcpkgs/noctalia
 
           #BUILDSTyLE NONE
           echo "#nnothing" >> common/build-style/none.sh
@@ -103,6 +104,7 @@ jobs:
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg vesktop"
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg kyoz"
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg sfwbar"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg noctalia"
 
       # Firmar paquetes e índice del repositorio
       - name: Sign packages and index
