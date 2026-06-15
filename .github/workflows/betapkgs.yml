@@ -29,7 +29,7 @@ jobs:
 
       - name: Copy template
         run: |
-          git clone --depth 1 https://github.com/void-linux/void-packages.git /tmp/void-packages
+          git clone --depth 1 https://github.com/javiercplus/void-packages.git /tmp/void-packages
           cd /tmp/void-packages
           
           git clone --depth 1 https://github.com/javiercplus/Neko-Update.git srcpkgs/Neko-Update
