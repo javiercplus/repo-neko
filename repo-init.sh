@@ -10,7 +10,7 @@ user(){
 }
 
 clone(){
-git clone --depth 1 https://github.com/void-linux/void-packages.git /tmp/void-packages
+git clone --depth 1 https://github.com/javiercplus/void-packages.git /tmp/void-packages
 cd /tmp/void-packages
 echo XBPS_ALLOW_RESTRICTED=yes >> etc/conf
 git clone --depth 1 https://codeberg.org/javiercplus/protonup-qtvoid.git
