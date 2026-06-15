@@ -6,13 +6,13 @@ user(){
           
           # Permitir que el usuario builder use sudo sin contraseña para las tareas de xbps-src
           echo "builder ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/builder
-          echo XBPS_ALLOW_RESTRICTED=yes >> etc/conf
+       
 }
 
 clone(){
 git clone --depth 1 https://github.com/void-linux/void-packages.git /tmp/void-packages
 cd /tmp/void-packages
-          
+echo XBPS_ALLOW_RESTRICTED=yes >> etc/conf
 git clone --depth 1 https://codeberg.org/javiercplus/protonup-qtvoid.git
 cp -rfv protonup-qtvoid/* srcpkgs/
           
