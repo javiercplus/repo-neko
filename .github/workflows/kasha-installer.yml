@@ -30,7 +30,7 @@ jobs:
         run:  cd /tmp/build  && make
 
       - name: Create tarball
-        run: tar -cvf neko_installer.tar neko_installer
+        run:  cd /tmp/build  && tar -cvf neko_installer.tar neko_installer
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
