@@ -36,4 +36,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: neko-installer-package
-          path: neko_installer.tar
+          path: /tmp/build/neko_installer.tar
