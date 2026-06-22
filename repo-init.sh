@@ -48,8 +48,12 @@ git clone --depth 1 https://codeberg.org/javiercplus/waterfox.git srcpkgs/waterf
           
 git clone --depth 1 https://codeberg.org/javiercplus/vesktop.git srcpkgs/vesktop
 
+git clone --depth 1 https://gitlab.com/neko-voidlinux/kitty-free.git srcpkgs/kitty-free
+
 git clone https://codeberg.org/javiercplus/kyoz.git srcpkgs/kyoz
+
 git clone --depth 1 https://github.com/javiercplus/sfwbar.git srcpkgs/sfwbar
+
 git clone --depth 1 https://github.com/javiercplus/noctalia.git srcpkgs/noctalia
 
 #BUILDSTyLE NONE
@@ -77,6 +81,7 @@ build(){
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg kyoz"
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg sfwbar"
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg noctalia"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg kitty-free"
 }
 
 case "$@" in 
