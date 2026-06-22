@@ -56,6 +56,7 @@ git clone --depth 1 https://github.com/javiercplus/sfwbar.git srcpkgs/sfwbar
 
 git clone --depth 1 https://github.com/javiercplus/noctalia.git srcpkgs/noctalia
 
+git clone --depth 1 https://codeberg.org/javiercplus/Kasha-Installer.git srcpkgs/kasha-installer
 #BUILDSTyLE NONE
 echo "#nnothing" >> common/build-style/none.sh
 # Cambiar la propiedad al usuario builder
@@ -82,6 +83,7 @@ build(){
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg sfwbar"
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg noctalia"
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg kitty-free"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg kasha-installer"
 }
 
 case "$@" in 
