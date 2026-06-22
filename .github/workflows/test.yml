@@ -32,18 +32,15 @@ jobs:
           git clone --depth 1 https://github.com/javiercplus/void-packages.git /tmp/void-packages
           cd /tmp/void-packages
           
-          git clone --depth 1 https://gitlab.com/neko-voidlinux/kitty-free.git srcpkgs/kitty-free
+          git clone --depth 1 https://codeberg.org/javiercplus/Kasha-Installer.git srcpkgs/Kasha-Installer
 
           echo "#nnothing" >> common/build-style/none.sh
           chown -R builder:builder /tmp/void-packages
 
       - name: Build package
         run: |
-          su - builder -c "cd /tmp/void-packages && ln -s srcpkgs/kitty-free srcpkgs/kitty-free-terminfo"
-          su - builder -c "cd /tmp/void-packages && ln -s srcpkgs/kitty-free srcpkgs/kitty-free-shell-integration"
-          su - builder -c "cd /tmp/void-packages && ln -s srcpkgs/kitty-free srcpkgs/kitty-free-kitten"
           su - builder -c "cd /tmp/void-packages && ./xbps-src binary-bootstrap"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg kitty-free"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg Kasha-Installer"
           
 
       - name: Sign packages and index
