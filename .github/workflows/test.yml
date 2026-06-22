@@ -32,7 +32,7 @@ jobs:
           git clone --depth 1 https://github.com/javiercplus/void-packages.git /tmp/void-packages
           cd /tmp/void-packages
           
-          git clone --depth 1 https://codeberg.org/javiercplus/Kasha-Installer.git srcpkgs/Kasha-Installer
+          git clone --depth 1 https://codeberg.org/javiercplus/Kasha-Installer.git srcpkgs/kasha-installer
 
           echo "#nnothing" >> common/build-style/none.sh
           chown -R builder:builder /tmp/void-packages
@@ -40,7 +40,7 @@ jobs:
       - name: Build package
         run: |
           su - builder -c "cd /tmp/void-packages && ./xbps-src binary-bootstrap"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg Kasha-Installer"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg kasha-installer"
           
 
       - name: Sign packages and index
