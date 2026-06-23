@@ -13,44 +13,44 @@ clone(){
 git clone --depth 1 https://github.com/void-linux/void-packages.git /tmp/void-packages
 cd /tmp/void-packages
 echo XBPS_ALLOW_RESTRICTED=yes >> etc/conf
-git clone --depth 1 https://codeberg.org/javiercplus/protonup-qtvoid.git
+git clone --depth 1 https://codeberg.org/Neko-Void/protonup-qtvoid.git
 cp -rfv protonup-qtvoid/* srcpkgs/
           
-git clone --depth 1 https://codeberg.org/javiercplus/spicetify-void.git
+git clone --depth 1 https://codeberg.org/Neko-Void/spicetify-void.git
 cp -rfv spicetify-void/* srcpkgs/
           
-git clone --depth 1 https://codeberg.org/javiercplus/STEAM-ALT-VOID.git
+git clone --depth 1 https://codeberg.org/Neko-Void/STEAM-ALT-VOID.git
 cp -rfv STEAM-ALT-VOID/* srcpkgs/
           
-git clone --depth 1 https://codeberg.org/javiercplus/faugus-launcher-void.git
+git clone --depth 1 https://codeberg.org/Neko-Void/faugus-launcher-void.git
 cp -rfv faugus-launcher-void/* srcpkgs/
 
-git clone --depth 1 https://codeberg.org/javiercplus/portproton-void.git
+git clone --depth 1 https://codeberg.org/Neko-Void/portproton-void.git
 cp -rfv portproton-void/* srcpkgs/
           
-git clone --depth 1 https://codeberg.org/javiercplus/Windscribe-void.git
+git clone --depth 1 https://codeberg.org/Neko-Void/Windscribe-void.git
 cp -rfv Windscribe-void/* srcpkgs/
           
-git clone --depth 1 https://codeberg.org/javiercplus/ZerotierOne-Void-Linux.git
+git clone --depth 1 https://codeberg.org/Neko-Void/ZerotierOne-Void-Linux.git
 cp -rfv ZerotierOne-Void-Linux/* srcpkgs/
           
-git clone --depth 1 https://codeberg.org/javiercplus/heroic-games.git srcpkgs/heroic-games
+git clone --depth 1 https://codeberg.org/Neko-Void/heroic-games.git srcpkgs/heroic-games
           
-git clone --depth 1 https://codeberg.org/javiercplus/brave-bin.git srcpkgs/brave-bin
+git clone --depth 1 https://codeberg.org/Neko-Void/brave-bin.git srcpkgs/brave-bin
           
-git clone --depth 1 https://codeberg.org/javiercplus/linux-neko-rolling.git srcpkgs/linux-neko-rolling
+git clone --depth 1 https://codeberg.org/Neko-Void/linux-neko-rolling.git srcpkgs/linux-neko-rolling
           
-git clone --depth 1 https://codeberg.org/javiercplus/linux-neko-rt.git srcpkgs/linux-neko-rt
+git clone --depth 1 https://codeberg.org/Neko-Void/linux-neko-rt.git srcpkgs/linux-neko-rt
           
-git clone --depth 1 https://codeberg.org/javiercplus/linux-neko-zen.git srcpkgs/linux-neko-zen
+git clone --depth 1 https://codeberg.org/Neko-Void/linux-neko-zen.git srcpkgs/linux-neko-zen
           
-git clone --depth 1 https://codeberg.org/javiercplus/waterfox.git srcpkgs/waterfox
+git clone --depth 1 https://codeberg.org/Neko-Void/waterfox.git srcpkgs/waterfox
           
-git clone --depth 1 https://codeberg.org/javiercplus/vesktop.git srcpkgs/vesktop
+git clone --depth 1 https://codeberg.org/Neko-Void/vesktop.git srcpkgs/vesktop
 
 git clone --depth 1 https://gitlab.com/neko-voidlinux/kitty-free.git srcpkgs/kitty-free
 
-git clone https://codeberg.org/javiercplus/kyoz.git srcpkgs/kyoz
+git clone --depth 1 https://codeberg.org/javiercplus/kyoz.git srcpkgs/kyoz
 
 git clone --depth 1 https://github.com/javiercplus/sfwbar.git srcpkgs/sfwbar
 
