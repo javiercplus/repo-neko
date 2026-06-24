@@ -32,7 +32,7 @@ jobs:
           git clone --depth 1 https://github.com/javiercplus/void-packages.git /tmp/void-packages
           cd /tmp/void-packages
           
-          git clone --depth 1 https://codeberg.org/javiercplus/Kasha-Installer.git srcpkgs/kasha-installer
+          git clone --depth 1 https://github.com/javiercplus/falcond-wd.git srcpkgs/falcond-wd
 
           echo "#nnothing" >> common/build-style/none.sh
           chown -R builder:builder /tmp/void-packages
@@ -40,7 +40,7 @@ jobs:
       - name: Build package
         run: |
           su - builder -c "cd /tmp/void-packages && ./xbps-src binary-bootstrap"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg kasha-installer"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg falcond-wd"
           
 
       - name: Sign packages and index
@@ -62,4 +62,4 @@ jobs:
           VERSION=$(date +"%Y%m%d")
           tar -czvf /tmp/neko-packages.tar.gz .
           
-          hf upload arepaconcafe/repo /tmp/neko-packages.tar.gz kitty-$VERSION.tar.gz --repo-type dataset --token $HF_TOKEN
+          hf upload arepaconcafe/repo /tmp/neko-packages.tar.gz test-$VERSION.tar.gz --repo-type dataset --token $HF_TOKEN
