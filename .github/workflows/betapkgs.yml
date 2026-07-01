@@ -37,7 +37,7 @@ jobs:
           git clone --depth 1 https://codeberg.org/Neko-Void/neko-icons.git srcpkgs/neko-icons
           git clone --depth 1 https://codeberg.org/Neko-Void/neko-themes.git srcpkgs/neko-themes
           git clone --depth 1 https://codeberg.org/javiercplus/Neko-Wizard.git srcpkgs/Neko-Wizard
-          git clone --depth 1 https://codeberg.org/Neko-Void/kpm.git srcpkgs/kpm
+          git clone --depth 1 https://codeberg.org/javiercplus/kpm.git srcpkgs/kpm
           git clone --depth 1 https://codeberg.org/Neko-Void/jwmkit-neko.git srcpkgs/jwmkit-neko
 
           echo "#nnothing" >> common/build-style/none.sh
