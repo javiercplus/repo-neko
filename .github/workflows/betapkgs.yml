@@ -29,16 +29,16 @@ jobs:
 
       - name: Copy template
         run: |
-          git clone --depth 1 https://github.com/javiercplus/void-packages.git /tmp/void-packages
+          git clone --depth 1 https://github.com/Neko-Void/void-packages.git /tmp/void-packages
           cd /tmp/void-packages
           
-          git clone --depth 1 https://github.com/javiercplus/Neko-Update.git srcpkgs/Neko-Update
-          git clone --depth 1 https://codeberg.org/javiercplus/neko-backgrounds.git srcpkgs/neko-backgrounds
-          git clone --depth 1 https://codeberg.org/javiercplus/neko-icons.git srcpkgs/neko-icons
-          git clone --depth 1 https://codeberg.org/javiercplus/neko-themes.git srcpkgs/neko-themes
+          git clone --depth 1 https://github.com/Neko-Void/Neko-Update.git srcpkgs/Neko-Update
+          git clone --depth 1 https://codeberg.org/Neko-Void/neko-backgrounds.git srcpkgs/neko-backgrounds
+          git clone --depth 1 https://codeberg.org/Neko-Void/neko-icons.git srcpkgs/neko-icons
+          git clone --depth 1 https://codeberg.org/Neko-Void/neko-themes.git srcpkgs/neko-themes
           git clone --depth 1 https://codeberg.org/javiercplus/Neko-Wizard.git srcpkgs/Neko-Wizard
-          git clone --depth 1 https://codeberg.org/javiercplus/kpm.git srcpkgs/kpm
-          git clone --depth 1 https://codeberg.org/javiercplus/jwmkit-neko.git srcpkgs/jwmkit-neko
+          git clone --depth 1 https://codeberg.org/Neko-Void/kpm.git srcpkgs/kpm
+          git clone --depth 1 https://codeberg.org/Neko-Void/jwmkit-neko.git srcpkgs/jwmkit-neko
 
           echo "#nnothing" >> common/build-style/none.sh
           chown -R builder:builder /tmp/void-packages
