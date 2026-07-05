@@ -17,6 +17,7 @@ jobs:
         run: |
           # Actualizar repositorios y el sistema
           xbps-install -Syu --repository=https://repo-de.voidlinux.org/current/  xbps
+          xbps-install -Syu --repository=https://repo-de.voidlinux.org/current/
           xbps-install -Suyd --repository=https://repo-de.voidlinux.org/current/ 
           
           # Instalar los paquetes necesarios (incluyendo sudo)
