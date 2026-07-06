@@ -45,7 +45,10 @@ jobs:
           mkdir -p /tmp/void-packages/hostdir/binpkgs
           cd /tmp/void-packages/hostdir/binpkgs
           sshpass -e rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" ${SFTP_USER}@frs.sourceforge.net:/home/frs/project/neko-void/repo/ .
-
+          
+      - name: Fix permissions for builder
+        run: chown -R builder:builder /tmp/void-packages
+        
       - name: Build package
         run: |
           su - builder -c "cd /tmp/void-packages && ./xbps-src binary-bootstrap"
@@ -73,7 +76,7 @@ jobs:
           cd /tmp/void-packages/hostdir/binpkgs
           sshpass -e rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" . ${SFTP_USER}@frs.sourceforge.net:/home/frs/project/neko-void/repo/
 
-      - name: Compress and upload to Hugging Face (optional)
+      - name: Compress and upload to Hugging Face 
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
