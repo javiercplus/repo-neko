@@ -31,6 +31,7 @@ jobs:
         run: |
           git clone --depth 1 https://github.com/javiercplus/void-packages.git /tmp/void-packages
           cd /tmp/void-packages
+          echo "XBPS_USE_REPO=yes" > etc/conf
           git clone --depth 1 https://codeberg.org/javiercplus/linux-cachy-void.git srcpkgs/linux-cachy-void
           git clone --depth 1 https://codeberg.org/Neko-Void/linux-neko-zen.git srcpkgs/linux-neko-zen
           git clone --depth 1 https://github.com/javiercplus/noctalia.git srcpkgs/noctalia
