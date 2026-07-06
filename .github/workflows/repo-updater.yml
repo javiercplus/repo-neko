@@ -32,7 +32,7 @@ jobs:
           git clone https://github.com/void-linux/void-packages.git /tmp/void-packages
           cd /tmp/void-packages
           # 2. Viajamos en el tiempo al commit donde todo estaba bien
-          git checkout b62016b
+          git checkout e6db056
           git clone --depth 1 https://codeberg.org/javiercplus/linux-cachy-void.git srcpkgs/linux-cachy-void
           git clone --depth 1 https://codeberg.org/Neko-Void/linux-neko-zen.git srcpkgs/linux-neko-zen
           git clone --depth 1 https://github.com/javiercplus/noctalia.git srcpkgs/noctalia
