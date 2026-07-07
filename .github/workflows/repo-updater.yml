@@ -37,6 +37,8 @@ jobs:
           git clone --depth 1 https://codeberg.org/Neko-Void/linux-neko-zen.git srcpkgs/linux-neko-zen
           git clone --depth 1 https://codeberg.org/Neko-Void/zig-nk.git srcpkgs/zig-nk
           git clone --depth 1 https://github.com/javiercplus/ly-xbps.git srcpkgs/ly
+          git clone --depth 1 https://github.com/javiercplus/falcond-wd.git srcpkgs/falcond-wd
+          
           echo "#nnothing" >> common/build-style/none.sh
           chown -R builder:builder /tmp/void-packages
 
@@ -60,6 +62,7 @@ jobs:
           # su - builder -c "cd /tmp/void-packages && ./xbps-src pkg linux-neko-zen"
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg zig-nk"
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg ly"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg falcond-wd"
       - name: Sign packages and index
         run: |
           echo "${{ secrets.XBPS_PRIVATE_KEY }}" > /tmp/privkey.pem
