@@ -43,7 +43,13 @@ git clone --depth 1 https://codeberg.org/Neko-Void/linux-neko-rolling.git srcpkg
 git clone --depth 1 https://codeberg.org/Neko-Void/linux-neko-rt.git srcpkgs/linux-neko-rt
           
 git clone --depth 1 https://codeberg.org/Neko-Void/linux-neko-zen.git srcpkgs/linux-neko-zen
-          
+
+git clone --depth 1 https://codeberg.org/Neko-Void/zig-nk.git srcpkgs/zig-nk
+
+git clone --depth 1 https://codeberg.org/javiercplus/linux-cachy-void.git srcpkgs/linux-cachy-void
+
+git clone --depth 1 https://github.com/javiercplus/ly-xbps.git srcpkgs/ly
+
 git clone --depth 1 https://codeberg.org/Neko-Void/waterfox.git srcpkgs/waterfox
           
 git clone --depth 1 https://codeberg.org/Neko-Void/vesktop.git srcpkgs/vesktop
@@ -84,6 +90,9 @@ build(){
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg noctalia"
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg kitty-free"
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg kasha-installer"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg linux-cachy-void"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg zig-nk"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg ly"
 }
 
 case "$@" in 
