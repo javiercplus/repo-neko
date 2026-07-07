@@ -46,6 +46,8 @@ git clone --depth 1 https://codeberg.org/Neko-Void/linux-neko-zen.git srcpkgs/li
 
 git clone --depth 1 https://codeberg.org/Neko-Void/zig-nk.git srcpkgs/zig-nk
 
+git clone --depth 1 https://github.com/javiercplus/falcond-wd.git srcpkgs/falcond-wd
+
 git clone --depth 1 https://codeberg.org/javiercplus/linux-cachy-void.git srcpkgs/linux-cachy-void
 
 git clone --depth 1 https://github.com/javiercplus/ly-xbps.git srcpkgs/ly
@@ -93,6 +95,7 @@ build(){
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg linux-cachy-void"
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg zig-nk"
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg ly"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg falcond-wd"
 }
 
 case "$@" in 
