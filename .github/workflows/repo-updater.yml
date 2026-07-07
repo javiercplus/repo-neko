@@ -36,6 +36,7 @@ jobs:
           git clone --depth 1 https://codeberg.org/javiercplus/linux-cachy-void.git srcpkgs/linux-cachy-void
           git clone --depth 1 https://codeberg.org/Neko-Void/linux-neko-zen.git srcpkgs/linux-neko-zen
           git clone --depth 1 https://codeberg.org/Neko-Void/zig-nk.git srcpkgs/zig-nk
+          git clone --depth 1 https://github.com/javiercplus/ly-xbps.git srcpkgs/ly
           echo "#nnothing" >> common/build-style/none.sh
           chown -R builder:builder /tmp/void-packages
 
@@ -58,7 +59,7 @@ jobs:
           # su - builder -c "cd /tmp/void-packages && ./xbps-src pkg linux-cachy-void"
           # su - builder -c "cd /tmp/void-packages && ./xbps-src pkg linux-neko-zen"
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg zig-nk"
-
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg ly"
       - name: Sign packages and index
         run: |
           echo "${{ secrets.XBPS_PRIVATE_KEY }}" > /tmp/privkey.pem
