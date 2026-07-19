@@ -32,8 +32,7 @@ jobs:
           git clone --depth 1 https://github.com/javiercplus/void-packages.git /tmp/void-packages
           cd /tmp/void-packages
           
-          git clone --depth 1 https://github.com/javiercplus/falcond-wd.git srcpkgs/falcond-wd
-          git clone --depth 1 https://codeberg.org/Neko-Void/zig-nk.git srcpkgs/zig-nk
+          git clone --depth 1 https://codeberg.org/Neko-Void/mullvad-vpn.git srcpkgs/mullvad-vpn
 
           echo "#nnothing" >> common/build-style/none.sh
           chown -R builder:builder /tmp/void-packages
@@ -41,7 +40,7 @@ jobs:
       - name: Build package
         run: |
           su - builder -c "cd /tmp/void-packages && ./xbps-src binary-bootstrap"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg falcond-wd"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg mullvad-vpn"
           
 
       - name: Sign packages and index
