@@ -40,6 +40,7 @@ jobs:
           git clone --depth 1 https://github.com/javiercplus/falcond-wd.git srcpkgs/falcond-wd
           git clone --depth 1 https://codeberg.org/javiercplus/Neko-Wizard.git srcpkgs/Neko-Wizard
           git clone --depth 1 https://github.com/javiercplus/noctalia srcpkgs/noctalia
+          git clone --depth 1 https://codeberg.org/Neko-Void/xwinwrap-nk.git srcpkgs/xwinwrap-nk
           
           echo "#nnothing" >> common/build-style/none.sh
           chown -R builder:builder /tmp/void-packages
@@ -66,7 +67,8 @@ jobs:
           # su - builder -c "cd /tmp/void-packages && ./xbps-src pkg ly"
           # su - builder -c "cd /tmp/void-packages && ./xbps-src pkg falcond-wd"
           # su - builder -c "cd /tmp/void-packages && ./xbps-src pkg Neko-Wizard"
-          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg noctalia"
+          # su - builder -c "cd /tmp/void-packages && ./xbps-src pkg noctalia"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg xwinwrap-nk" 
       - name: Sign packages and index
         run: |
           echo "${{ secrets.XBPS_PRIVATE_KEY }}" > /tmp/privkey.pem
