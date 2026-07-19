@@ -65,6 +65,8 @@ git clone --depth 1 https://github.com/javiercplus/sfwbar.git srcpkgs/sfwbar
 git clone --depth 1 https://github.com/javiercplus/noctalia.git srcpkgs/noctalia
 
 git clone --depth 1 https://codeberg.org/javiercplus/Kasha-Installer.git srcpkgs/kasha-installer
+
+git clone --depth 1 https://codeberg.org/Neko-Void/xwinwrap-nk.git srcpkgs/xwinwrap-nk
 #BUILDSTyLE NONE
 echo "#nnothing" >> common/build-style/none.sh
 # Cambiar la propiedad al usuario builder
@@ -96,6 +98,7 @@ build(){
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg zig-nk"
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg ly"
           su - builder -c "cd /tmp/void-packages && ./xbps-src pkg falcond-wd"
+          su - builder -c "cd /tmp/void-packages && ./xbps-src pkg xwinwrap-nk"
 }
 
 case "$@" in 
